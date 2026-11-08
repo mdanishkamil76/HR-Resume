@@ -10,8 +10,14 @@ st.caption("Three-agent recruitment assistant powered by Groq")
 
 with st.sidebar:
     st.header("Configuration")
-    model = st.text_input("Groq model", value="llama-3.3-70b-versatile",
-                          help="Change this if the model is unavailable in your Groq account.")
+    model = st.selectbox(
+    "Groq model",
+    options=[
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b"
+    ],
+    index=0
+)
     st.info("Your Groq API key is read from Streamlit secrets. Never paste it into this app or commit it to GitHub.")
     st.markdown("---")
     st.caption("Agent 1: ATS audit · Agent 2: JD match · Agent 3: Resume development")
